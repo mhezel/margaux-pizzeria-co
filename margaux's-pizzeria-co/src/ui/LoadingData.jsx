@@ -1,4 +1,4 @@
-function LoadingData(){
-    return <h1>Loading....</h1>
+function LoadingData() {
+  return <h1>Loading....</h1>;
 }
 export default LoadingData;
