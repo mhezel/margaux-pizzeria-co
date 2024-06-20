@@ -1,11 +1,17 @@
 import { formatCurrency } from "../../utils/helpers";
 import Button from "../../ui/Button";
-import { useDispatch } from "react-redux";
-import { addItemsToCart } from "../cart/cartSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addItemsToCart, getCurrentCartQuantityById } from "../cart/cartSlice";
+import DeleteItem from "../cart/DeleteItem";
 
 function MenuItem({ pizza }) {
   const { id, name, unitPrice, ingredients, soldOut, imageUrl } = pizza;
   const dispatch = useDispatch();
+
+  // special selector => 
+  // to check if item is inside the cart for conditional rendering of delete action
+  const currentCartQuantity = useSelector(getCurrentCartQuantityById(id));
+  const isItemAddedToCart = currentCartQuantity > 0;
 
   function handleAddToCart(){
     // console.log(id);
@@ -16,13 +22,8 @@ function MenuItem({ pizza }) {
         unitPrice,
         totalPrice: unitPrice * 1,
     };
-
     dispatch(addItemsToCart(newItem));
   }
-
-//   ddItemsToCart(state, action){
-//   state.cart.push(action.payload) //payload == newItem
-//  },
 
   return (
     <li className="flex gap-4 py-2">
@@ -34,7 +35,14 @@ function MenuItem({ pizza }) {
         <div className="mt-auto flex items-center justify-between">
           {!soldOut ? <p className="text-sm uppercase font-medium text-stone-500">{formatCurrency(unitPrice)}</p> : 
           <p className="text-sm uppercase font-medium text-stone-500">Sold out</p>}
-          {!soldOut && <Button type="small" onClick={handleAddToCart}>Add to cart</Button>}
+          {!soldOut && (
+            <>
+              {isItemAddedToCart && 
+                (<DeleteItem pizzaId={id}>Remove</DeleteItem>)}
+              {!isItemAddedToCart && 
+                (<Button type="small" onClick={handleAddToCart}>Add to cart</Button>)}
+            </>
+          )}
         </div>
       </div>
     </li>
