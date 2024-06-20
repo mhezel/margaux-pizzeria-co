@@ -14,7 +14,7 @@ function CreateUser() {
 
     if (!username) return;
     dispatch(updateName(username)); //action.payload
-    navigate('/menu');
+    navigate("/menu");
   }
 
   return (

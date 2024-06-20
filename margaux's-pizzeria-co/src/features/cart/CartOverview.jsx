@@ -4,11 +4,10 @@ import { getNumberOfPizzas, getTotalAmountPriceOfPizzas } from "./cartSlice";
 import { formatCurrency } from "../../utils/helpers";
 
 function CartOverview() {
-
   const totalCartQuantity = useSelector(getNumberOfPizzas);
   const totalCartPrice = useSelector(getTotalAmountPriceOfPizzas);
 
-  if(!totalCartQuantity) return null;
+  if (!totalCartQuantity) return null;
 
   return (
     <div className="flex items-center justify-between bg-stone-800 px-4 py-4 text-sm uppercase text-stone-200 sm:px-6 md:text-base">
