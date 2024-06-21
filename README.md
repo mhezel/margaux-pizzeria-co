@@ -1,5 +1,6 @@
 #**margaux's-pizzeria-co**
- margaux's-pizzeria-co TECH STACK: 
+
+TECH STACK: 
   * ReactRouter (Routing)
   * ReactRouter (Loaders & Actions for fetching Data from the API)
   * TailwindCSS (Styling)
