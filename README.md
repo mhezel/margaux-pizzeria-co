@@ -1,5 +1,5 @@
-# Pizza_Ordering-REACTjs
- Pizza Ordering Application TECH STACK: 
+#**margaux's-pizzeria-co**
+ margaux's-pizzeria-co TECH STACK: 
   * ReactRouter (Routing)
   * ReactRouter (Loaders & Actions for fetching Data from the API)
   * TailwindCSS (Styling)
