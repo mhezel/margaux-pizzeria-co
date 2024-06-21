@@ -6,7 +6,7 @@ import LoadingData from "./LoadingData";
 function ApplicationLayout() {
   const navigation = useNavigation();
   const isLoading = navigation.state === "loading";
-  console.log(navigation);
+  // console.log(navigation);
 
   return (
     <div className="grid h-screen grid-rows-[auto_1fr_auto]">
